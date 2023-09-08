@@ -1,6 +1,9 @@
 """
 This model class is a representation of our databse table.
 This is the Base parent class for all future database tables.
+Later, we inherit from this Base class when creating SQLAlchemy model classes.
+In SQLAlchemy, models refer to the classes that represent 
+the structure and behavior of database tables. 
 """
 
 from typing import Any
@@ -9,10 +12,17 @@ from sqlalchemy.orm import as_declarative
 
 @as_declarative()
 class Base:
+    """
+    Converts the Base class into a declarative base class, 
+    which is acts as a base class for all SQLAlchemy model classes.
+    """
     id: Any
     __name__: str
 
     @declared_attr
     def __tablename__(cls) -> str:
-        """Generate table name from class name"""
+        """
+        Generates the name of the database table associated with the SQLAlchemy model class
+        Derives the table name from class name.
+        """
         return cls.__name__.lower()
