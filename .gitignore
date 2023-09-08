@@ -5,3 +5,4 @@ __pycache__
 env
 test_db.db
 .env
+sql_app.db
