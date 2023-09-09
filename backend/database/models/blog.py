@@ -12,6 +12,6 @@ class Blog(Base):
     slug = Column(String, nullable = False)
     content = Column(Text, nullable = False)
     author_id = Column(Integer, ForeignKey("user.id"))
-    author = relationship("user", back_populates = "blogs")
+    author = relationship("User", back_populates = "blogs")
     creation_date = Column(DateTime, default = datetime.now)
     is_active = Column(Boolean, default = False)

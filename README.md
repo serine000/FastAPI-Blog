@@ -12,3 +12,5 @@ This is a simple blog application developed using python, sqlalchemy, alembic, d
 - A **request-response cycle** explains the journey of the browser making a request and our framework (e.g. FastAPI, Django, etc) sending back a response. It describs how a web application handles incoming HTTP requests and produces corresponding HTTP responses.
 
 - In SQLAlchemy, **models** refer to the classes that represent the structure and behavior of database tables. These classes are used to interact with the database using Python code.
+
+- A **schema** is used to validate the data we receive as well as to reformat the data that we want to send to the client/browser. We create pydantic classes that verify the types, called Schemas.

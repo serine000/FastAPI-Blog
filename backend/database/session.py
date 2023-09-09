@@ -5,6 +5,7 @@ SQLite is a file system-based database.
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from typing import Generator 
 
 from conf.config import settings
 
@@ -21,3 +22,10 @@ SessionLocal = sessionmaker(
     autocommit = False,
     autoflush = False,
     bind = engine)
+
+def get_database() -> Generator:
+    try:
+        db = SessionLocal()
+        yield db
+    finally:
+        db.close()
