@@ -1,6 +1,6 @@
 """
-This file defines an sqlalchemy engine with a sqlite database.
-sqlite is a ifle system based database.
+This file defines an SQLAlchemy engine with a SQLite database.
+SQLite is a file system-based database.
 """
 
 from sqlalchemy import create_engine

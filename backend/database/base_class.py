@@ -13,16 +13,16 @@ from sqlalchemy.orm import as_declarative
 @as_declarative()
 class Base:
     """
-    Converts the Base class into a declarative base class, 
-    which is acts as a base class for all SQLAlchemy model classes.
+    Declarative base class for all SQLAlchemy model classes.
     """
+
     id: Any
     __name__: str
 
     @declared_attr
     def __tablename__(cls) -> str:
         """
-        Generates the name of the database table associated with the SQLAlchemy model class
-        Derives the table name from class name.
+        Generates the name of the database table associated with the SQLAlchemy model class.
+        Derives the table name from the class name.
         """
         return cls.__name__.lower()
