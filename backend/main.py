@@ -4,10 +4,14 @@ import logging
 from conf.config import settings
 from database.session import engine
 from database.base import Base
+from apis.base import api_router
 
 def create_tables():
     Base.metadata.create_all(bind = engine)
 
+def include_router(app: FastAPI):   
+	app.include_router(api_router)
+        
 
 def start_application(settings):
     logging.info("Starting application...")
@@ -17,6 +21,7 @@ def start_application(settings):
         version=settings.PROJECT_VERSION
         )
         create_tables()
+        include_router(app)
         logging.info("Application started successfully.")
         return app
     except Exception as e:

@@ -1,16 +1,14 @@
 from passlib.context import CryptContext
 
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 class Hasher:
     """
     The `Hasher` class provides methods for verifying passwords
     and generating password hashes using the `CryptContext` class from the `passlib` library.
     """
-
-    def __init__(self):
-        self.pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
-
-    def verify_password(self, plain_password: str, hashed_password: str) -> bool:
+    @staticmethod
+    def verify_password(plain_password: str, hashed_password: str) -> bool:
         """
         Verify if the plain password matches the hashed password.
 
@@ -21,9 +19,10 @@ class Hasher:
         Returns:
             bool: True if the plain password matches the hashed password, False otherwise.
         """
-        return self.pwd_context.verify(plain_password, hashed_password)
+        return pwd_context.verify(plain_password, hashed_password)
 
-    def generate_password_hash(self, password: str) -> str:
+    @staticmethod
+    def generate_password_hash(password: str) -> str:
         """
         Generate the hashed version of the password.
 
@@ -33,4 +32,4 @@ class Hasher:
         Returns:
             str: The hashed password.
         """
-        return self.pwd_context.hash(password)
+        return pwd_context.hash(password)

@@ -12,3 +12,4 @@ class User(Base):
     password = Column(String, nullable = False)
     is_superuser = Column(Boolean, default = False)
     is_active = Column(Boolean, default = False)
+    blogs = relationship("Blog", back_populates = "author")
