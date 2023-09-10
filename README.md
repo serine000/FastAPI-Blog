@@ -14,3 +14,5 @@ This is a simple blog application developed using python, sqlalchemy, alembic, d
 - In SQLAlchemy, **models** refer to the classes that represent the structure and behavior of database tables. These classes are used to interact with the database using Python code.
 
 - A **schema** is used to validate the data we receive as well as to reformat the data that we want to send to the client/browser. We create pydantic classes that verify the types, called Schemas.
+
+- We use the **repository pattern** in this code to encapsulate all database operations and make sure the application only interacts with the repository while keeping the database code isolated in one place.
