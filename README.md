@@ -16,3 +16,5 @@ This is a simple blog application developed using python, sqlalchemy, alembic, d
 - A **schema** is used to validate the data we receive as well as to reformat the data that we want to send to the client/browser. We create pydantic classes that verify the types, called Schemas.
 
 - We use the **repository pattern** in this code to encapsulate all database operations and make sure the application only interacts with the repository while keeping the database code isolated in one place.
+
+- In a typical blog list, we are more concerned about **rendering a list of blogs** instead of just fetching one single blog. This is generally called a list view.
