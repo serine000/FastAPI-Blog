@@ -6,3 +6,5 @@ env
 test_db.db
 .env
 sql_app.db
+t.py
+t2.py
