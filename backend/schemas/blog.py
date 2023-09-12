@@ -5,7 +5,7 @@ class CreateBlog(BaseModel):
     title: str 
     slug: str 
     content: Optional[str] = None 
-    is_active: bool = True
+    is_active: bool = 1
     
     @validator('slug', pre=True)
     def generate_slug(cls, slug, values):
@@ -24,3 +24,6 @@ class ShowBlog(BaseModel):
 
     class Config():
         orm_mode = True
+
+class UpdateBlog(CreateBlog):
+    pass
