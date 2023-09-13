@@ -8,3 +8,4 @@ test_db.db
 sql_app.db
 t.py
 t2.py
+.pytest_cache
