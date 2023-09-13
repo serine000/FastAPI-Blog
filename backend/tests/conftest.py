@@ -1,6 +1,7 @@
 """
 We are creating a new Fastapi instance, an app, and a brand new database. 
 This is an SQLite database and we don't need to do anything because Python will create a file - test_db.db
+we are resetting/rollbacking the changes in the DB tables and even creating a new database for each test
 """
 
 import sys
@@ -15,7 +16,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 from database.base import Base
-from database.session import get_db
+from database.session import get_database
 from conf.config import settings
 from apis.base import api_router
 
@@ -23,7 +24,7 @@ from apis.base import api_router
 '''
 This line allows us to incllude the backend dir into sys.path so we can import from other modules.
 '''
-# sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) 
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) 
 
 
 def start_application():
@@ -81,6 +82,6 @@ def client(
         finally:
             pass
 
-    app.dependency_overrides[get_db] = _get_test_db
+    app.dependency_overrides[get_database] = _get_test_db
     with TestClient(app) as client:
         yield client
