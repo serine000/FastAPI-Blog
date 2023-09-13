@@ -6,3 +6,5 @@ python-dotenv==1.0.0
 alembic==1.11.1
 pydantic[email]
 passlib[bcrypt] 
+pytest==7.4.0
+httpx==0.24.1

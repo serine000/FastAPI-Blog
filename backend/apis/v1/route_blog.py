@@ -37,7 +37,7 @@ def update_blog(id: int, blog: UpdateBlog,  db: Session = Depends(get_database))
 
 @router.delete("/delete_blog/{id}")
 def delete_blog(id: int, db: Session = Depends(get_database)):
-    message = delete_the_blog(id = id, author_id = 1,db = db)
+    message = delete_the_blog(id = id, author_id = 1, db = db)
     if message.get("error"):
         raise HTTPException(detail = message.get("error"), status_code = status.HTTP_400_BAD_REQUEST)
     return {"msg":f"Successfully deleted blog with id {id}"}

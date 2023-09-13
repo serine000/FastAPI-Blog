@@ -20,3 +20,5 @@ This is a simple blog application developed using python, sqlalchemy, alembic, d
 - In a typical blog list, we are more concerned about **rendering a list of blogs** instead of just fetching one single blog. This is generally called a list view.
 
 - For deleting a blog, since blog object has no delete() method defined we instead call in the **reference of the blog object** with the `first()` function and delete it.
+
+- In our unit tests, we will be overriding the `get_database()` dependency and providing our brand new test database instead. This concept is known as **dependency injection**.
