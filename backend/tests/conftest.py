@@ -33,12 +33,14 @@ def start_application():
     return app
 
 
-SQLALCHEMY_DATABASE_URL = settings.DATABASE_URL
-engine = create_engine(
-    SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
-)
+engine = settings.DATABASE_ENGINE
+
 # Use connect_args parameter only with sqlite
-SessionTesting = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+SessionTesting = sessionmaker(
+    autocommit = False, 
+    autoflush = False, 
+    bind = engine
+    )
 
 
 @pytest.fixture(scope="function")
