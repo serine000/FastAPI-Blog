@@ -45,3 +45,4 @@ starlette==0.26.1
 typing_extensions==4.7.1
 uvicorn==0.22.0
 virtualenv==20.24.5
+python-multipart==0.0.6 
