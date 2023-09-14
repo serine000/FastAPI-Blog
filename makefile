@@ -6,4 +6,3 @@ activateEnv:
 
 freeze:
 	pip freeze > backend/requirements.txt
-

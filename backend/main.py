@@ -1,25 +1,24 @@
-from fastapi import FastAPI
 import logging
 
-from conf.config import settings
-from database.session import engine
-from database.base import Base
 from apis.base import api_router
+from conf.config import settings
+from database.base import Base
+from database.session import engine
+from fastapi import FastAPI
+
 
 def create_tables():
-    Base.metadata.create_all(bind = engine)
+    Base.metadata.create_all(bind=engine)
 
-def include_router(app: FastAPI):   
-	app.include_router(api_router)
-        
+
+def include_router(app: FastAPI):
+    app.include_router(api_router)
+
 
 def start_application(settings):
     logging.info("Starting application...")
     try:
-        app = FastAPI(
-        title=settings.PROJECT_NAME,
-        version=settings.PROJECT_VERSION
-        )
+        app = FastAPI(title=settings.PROJECT_NAME, version=settings.PROJECT_VERSION)
         create_tables()
         include_router(app)
         logging.info("Application started successfully.")
@@ -32,9 +31,10 @@ def start_application(settings):
 
 app = start_application(settings)
 
+
 @app.get("/")
 async def hello_api():
     """
     Returns a JSON response with the message "Hello FastAPI".
     """
-    return {"msg":"Hello FastAPI"}
+    return {"msg": "Hello FastAPI"}

@@ -1,30 +1,28 @@
 """
-We are creating a new Fastapi instance, an app, and a brand new database. 
+We are creating a new Fastapi instance, an app, and a brand new database.
 This is an SQLite database and we don't need to do anything because Python will create a file - test_db.db
 we are resetting/rollbacking the changes in the DB tables and even creating a new database for each test
 """
-
-import sys
 import os
+import sys
 from typing import Any
 from typing import Generator
 
 import pytest
+from apis.base import api_router
+from conf.config import settings
+from database.base import Base
+from database.session import get_database
 from fastapi import FastAPI
 from fastapi.testclient import TestClient
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from database.base import Base
-from database.session import get_database
-from conf.config import settings
-from apis.base import api_router
 
-
-'''
+"""
 This line allows us to incllude the backend dir into sys.path so we can import from other modules.
-'''
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) 
+"""
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
 def start_application():
@@ -36,11 +34,7 @@ def start_application():
 engine = settings.DATABASE_ENGINE
 
 # Use connect_args parameter only with sqlite
-SessionTesting = sessionmaker(
-    autocommit = False, 
-    autoflush = False, 
-    bind = engine
-    )
+SessionTesting = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 
 @pytest.fixture(scope="function")
@@ -70,8 +64,7 @@ def db_session(app: FastAPI) -> Generator[SessionTesting, Any, None]:
 
 @pytest.fixture(scope="function")
 def client(
-    app: FastAPI, 
-    db_session: SessionTesting
+    app: FastAPI, db_session: SessionTesting
 ) -> Generator[TestClient, Any, None]:
     """
     Create a new FastAPI TestClient that uses the `db_session` fixture to override
