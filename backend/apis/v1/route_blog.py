@@ -1,20 +1,12 @@
 from typing import List
-from backend.apis.v1.route_login import get_current_user
-from backend.database.models.user import User
+from apis.v1.route_login import get_current_user
+from database.models.user import User
 
-from database.repository.blog import create_new_blog
-from database.repository.blog import delete_the_blog
-from database.repository.blog import list_blogs
-from database.repository.blog import retreive_blog
-from database.repository.blog import update_a_blog
+from database.repository.blog import (create_new_blog, delete_the_blog, list_blogs,
+                                      retreive_blog, update_a_blog)
 from database.session import get_database
-from fastapi import APIRouter
-from fastapi import Depends
-from fastapi import HTTPException
-from fastapi import status
-from schemas.blog import CreateBlog
-from schemas.blog import ShowBlog
-from schemas.blog import UpdateBlog
+from fastapi import APIRouter, Depends, HTTPException, status
+from schemas.blog import CreateBlog, ShowBlog, UpdateBlog
 from sqlalchemy.orm import Session
 
 router = APIRouter()
