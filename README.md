@@ -22,3 +22,7 @@ This is a simple blog application developed using python, sqlalchemy, alembic, d
 - For deleting a blog, since blog object has no delete() method defined we instead call in the **reference of the blog object** with the `first()` function and delete it.
 
 - In our unit tests, we will be overriding the `get_database()` dependency and providing our brand new test database instead. This concept is known as **dependency injection**.
+
+- In order to skip any pre-commit hooks, run `--no-verify` after your commit message in your git commit command.
+
+- To run the pre-commit on all your codebase run `pre-commit run --all-files`
