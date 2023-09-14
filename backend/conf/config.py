@@ -21,5 +21,9 @@ class Settings:
         DATABASE_URL, connect_args={"check_same_thread": False}
     )
 
+    JWT_SECRET_KEY: str = os.getenv("SECRET_KEY")
+    JWT_ALGORITHM = "HS256"
+    JWT_ACCESS_TOKEN_EXPIRE_MINUTES = 30
+
 
 settings = Settings()
