@@ -28,3 +28,5 @@ This is a simple blog application developed using python, sqlalchemy, alembic, d
 - To run the pre-commit on all your codebase run `pre-commit run --all-files`
 
 - In most API-based approaches, a commong way to ensure user authentication is by using **JSON Web Tokens**, aka jwt-based authentication.
+
+- **Authentication** is related to login and **authorization** is related to permission.
