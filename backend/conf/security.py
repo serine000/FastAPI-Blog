@@ -2,6 +2,8 @@
 We make use of a secret key and algorithms to encode
 the data dictionary we recieve from the user to get a dedicated access token.
 """
+import os
+import logging
 from datetime import datetime
 from datetime import timedelta
 from typing import Optional
