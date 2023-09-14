@@ -26,3 +26,5 @@ This is a simple blog application developed using python, sqlalchemy, alembic, d
 - In order to skip any pre-commit hooks, run `--no-verify` after your commit message in your git commit command.
 
 - To run the pre-commit on all your codebase run `pre-commit run --all-files`
+
+- In most API-based approaches, a commong way to ensure user authentication is by using **JSON Web Tokens**, aka jwt-based authentication.

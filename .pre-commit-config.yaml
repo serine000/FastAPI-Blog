@@ -16,9 +16,11 @@ repos:
     hooks:
     -   id: flake8
         args: [--max-line-length=88]
-        #files: ^my_appname/|^test_suite_name/
+        files: backend/
 
 -   repo: https://github.com/asottile/reorder_python_imports
     rev: v3.10.0
     hooks:
     -   id: reorder-python-imports
+
+exclude: '.git|backend/alembic/*|backend/database/base.py'
