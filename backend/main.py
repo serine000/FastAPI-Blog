@@ -18,7 +18,8 @@ def include_router(app: FastAPI):
 def start_application(settings):
     logging.info("Starting application...")
     try:
-        app = FastAPI(title=settings.PROJECT_NAME, version=settings.PROJECT_VERSION)
+        app = FastAPI(title=settings.PROJECT_NAME,
+                      version=settings.PROJECT_VERSION)
         create_tables()
         include_router(app)
         logging.info("Application started successfully.")

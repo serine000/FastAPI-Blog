@@ -29,7 +29,7 @@ def create_access_token(data: dict, expires_delta: Optional[timedelta] = None):
     Example Usage:
         data = {"user_id": 123}
         expires_delta = timedelta(hours=1)
-        access_token = create_access_token(data, expires_delta)
+        access_token = create_access_token                         (data, expires_delta)
         print(access_token)
     """
     to_encode = data.copy()
