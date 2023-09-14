@@ -22,5 +22,3 @@ repos:
     rev: v3.10.0
     hooks:
     -   id: reorder-python-imports
-
-exclude: '.git|backend/alembic/*|backend/database/base.py'
