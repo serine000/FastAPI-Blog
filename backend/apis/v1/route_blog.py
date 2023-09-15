@@ -2,8 +2,8 @@ from typing import List
 from apis.v1.route_login import get_current_user
 from database.models.user import User
 
-from database.repository.blog import (create_new_blog, delete_the_blog, list_blogs,
-                                      retreive_blog, update_a_blog)
+from database.repository.blog import (create_new_blog, delete_the_blog,
+                                      list_blogs, retreive_blog, update_a_blog)
 from database.session import get_database
 from fastapi import APIRouter, Depends, HTTPException, status
 from schemas.blog import CreateBlog, ShowBlog, UpdateBlog

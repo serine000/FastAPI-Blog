@@ -19,7 +19,8 @@ class Hasher:
             hashed_password (str): The hashed password to compare against.
 
         Returns:
-            bool: True if the plain password matches the hashed password, False otherwise.
+            bool: True if the plain password matches the hashed password,
+                  False otherwise.
         """
         return pwd_context.verify(plain_password, hashed_password)
 

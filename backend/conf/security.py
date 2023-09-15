@@ -2,8 +2,6 @@
 We make use of a secret key and algorithms to encode
 the data dictionary we recieve from the user to get a dedicated access token.
 """
-import os
-import logging
 from datetime import datetime
 from datetime import timedelta
 from typing import Optional
@@ -29,7 +27,7 @@ def create_access_token(data: dict, expires_delta: Optional[timedelta] = None):
     Example Usage:
         data = {"user_id": 123}
         expires_delta = timedelta(hours=1)
-        access_token = create_access_token                         (data, expires_delta)
+        access_token = create_access_token (data, expires_delta)
         print(access_token)
     """
     to_encode = data.copy()
